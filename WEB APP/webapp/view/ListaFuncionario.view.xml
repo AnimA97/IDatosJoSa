@@ -1,0 +1,94 @@
+<mvc:View
+	controllerName="sap.ui.procesosDNPC.controller.ListaFuncionario"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	xmlns:semantic="sap.f.semantic"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:table="sap.ui.table">
+	<semantic:SemanticPage id="page">
+		<semantic:titleHeading>
+			<Title
+				id="masterHeaderTitle"
+				text="Actividades en curso"/>
+		</semantic:titleHeading>
+		<semantic:content>
+			<!-- <table:Table rows="{/ProcesosEsperando}" rowSelectionChange="onRowSelected" selectionMode="Single">
+				<table:extension>
+						<Toolbar>
+							<Title text="Solicitudes"/>
+							<ToolbarSpacer/>
+							<Button press="refreshSolicitudes" icon="sap-icon://refresh"/>
+						</Toolbar>
+				</table:extension>
+				<table:columns>
+                    <table:Column>
+						<Label text="Key del proceso" />
+						<table:template>
+							<Text text="{processDefinitionKey}" />
+						</table:template>
+					</table:Column>
+					<table:Column>
+						<Label text="Id instancia de proceso" />
+						<table:template>
+							<Text text="{processInstanceId}" />
+						</table:template>
+					</table:Column>
+					<table:Column>
+						<Label text="Fecha de creacion" />
+						<table:template>
+							<Text text="{path: 'createTime', formatter: '.formatter.formatDate'}"/>
+						</table:template>
+					</table:Column>
+					<table:Column>
+						<Label text="Fecha de espera" />
+						<table:template>
+							<Text text="{path: 'dueDate', formatter: '.formatter.formatDate'}"/>
+						</table:template>
+					</table:Column>
+				</table:columns>
+			</table:Table> -->
+			<Table id="tableProcesosEsperando" items="{/ProcesosEsperando}" mode="None">
+                <headerToolbar>
+                    <Toolbar>
+                        <Title text="Solicitudes"/>
+                        <ToolbarSpacer/>
+                        <Button press="refreshSolicitudes" icon="sap-icon://refresh"/>
+                    </Toolbar>
+                </headerToolbar>
+                <columns>
+                    <Column>
+                        <header>
+                            <Text text="Key del proceso"/>
+                        </header>
+                    </Column>
+					<Column>
+                        <header>
+                            <Text text="Id instancia de proceso"/>
+                        </header>
+                    </Column>
+					<Column>
+                        <header>
+                            <Text text="Fecha de creacion"/>
+                        </header>
+                    </Column>
+					<Column>
+                        <header>
+                            <Text text="Fecha de espera"/>
+                        </header>
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem type="Active" press="onRowSelected">
+                        <cells>
+                            <ObjectIdentifier text="{processDefinitionKey}"/>
+							<Text text="{processInstanceId}" />
+							<Text text="{path: 'createTime', formatter: '.formatter.formatDate'}"/>
+							<Text text="{path: 'dueDate', formatter: '.formatter.formatDate'}"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+		</semantic:content>
+	</semantic:SemanticPage>
+</mvc:View>

@@ -1,0 +1,62 @@
+<core:FragmentDefinition 
+	xmlns="sap.m" 
+	xmlns:core="sap.ui.core"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:l="sap.ui.layout" 
+	>
+	<Dialog id="ChangeDialog" title="Datos de la solicitud">
+		<buttons>
+			<Button text="Cerrar" press="onCloseDialog" type="Reject"/>
+		</buttons>
+		<content>
+		<VBox class="sapUiSmallMargin">
+			<HBox>
+				<Label text="Tipo de Solicitud:"/>
+				<Text text="{/SolicitudMostrar/tipo_solicitud_label}" class="sapUiTinyMarginBegin"/>
+			</HBox>
+			<HBox>
+				<Label text="Documento: "/>
+				<Text text="{/SolicitudMostrar/documento}" class="sapUiTinyMarginBegin"/>
+			</HBox>
+			
+			<HBox>
+				<Label text="Fecha de nacimiento:"/>
+				<Text text="{/SolicitudMostrar/dia}/{/SolicitudMostrar/mes}/{/SolicitudMostrar/anio}" class="sapUiTinyMarginBegin"/>
+			</HBox>
+			<HBox>
+				<Label text="Teléfono:"/>
+				<Text text="{/SolicitudMostrar/telefono}" class="sapUiTinyMarginBegin"/>
+			</HBox>
+			<HBox>
+				<Label text="Email:"/>
+				<Text text="{/SolicitudMostrar/email}" class="sapUiTinyMarginBegin"/>
+			</HBox>
+			<HBox visible="{= ${/SolicitudMostrar/destino_certificado} === 'Ministerio de Relaciones Exteriores' }">
+				<Label text="Tipo de Trámite: "/>
+				<Text text="{/SolicitudMostrar/tipo_tramite_label}" class="sapUiTinyMarginBegin"/>
+			</HBox>
+			<HBox visible="{= ${/SolicitudMostrar/destino_certificado} === 'Ministerio de Relaciones Exteriores' &amp;&amp; ${/SolicitudMostrar/tipo_tramite_label} === 'Gestor' }">
+				<Label text="Documento del Gestor:"/>
+				<Text text="{/SolicitudMostrar/documento_gestor}" class="sapUiTinyMarginBegin"/>
+			</HBox>
+			<HBox>
+				<Label text="Destino del Certificado:"/>
+				<Text text="{/SolicitudMostrar/destino_certificado}" class="sapUiTinyMarginBegin"/>
+			</HBox>
+			<HBox>
+				<Label text="Oficina del Certificado:"/>
+				<Text text="{/SolicitudMostrar/oficina_certificado}" class="sapUiTinyMarginBegin"/>
+			</HBox>
+			<HBox>
+				<Label text="Fecha de la cita:"/>
+				<Text text="{/SolicitudMostrar/fecha}" class="sapUiTinyMarginBegin"/>
+			</HBox>
+			<HBox>
+				<Label text="Hora de la cita:"/>
+				<Text text="{/SolicitudMostrar/hora}" class="sapUiTinyMarginBegin"/>
+			</HBox>
+		</VBox>
+			
+		</content>
+	</Dialog>
+</core:FragmentDefinition>

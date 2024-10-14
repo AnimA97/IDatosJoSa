@@ -1,0 +1,95 @@
+<mvc:View
+	controllerName="sap.ui.procesosDNPC.controller.Lista"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	xmlns:semantic="sap.f.semantic"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:table="sap.ui.table">
+	<semantic:SemanticPage id="page">
+		<semantic:titleHeading>
+			<Title
+				id="masterHeaderTitle"
+				text="Actividades en curso"/>
+		</semantic:titleHeading>
+		<semantic:content>
+			<VBox>
+				<Button text="Nueva solicitud" press="nuevaSolicitud"/>
+				<!--Button visible="{= ${/Proceso/state} !== 'ACTIVE' }" text="Nueva solicitud" press="nuevaSolicitud"/-->
+				<MessageStrip visible="{= ${/Proceso/state} === 'ACTIVE' }" text="Tienes una solicitud en curso" type="Information" showIcon="true" />
+				<Panel headerText="Informacion General de la solicitud" class="sapUiMediumMarginTop sapUiMediumMarginBottom"> 
+					<VBox>
+						<HBox>
+							<Label text="Nombre:" vAlign="Bottom" class="sapUiTinyMarginEnd"/>
+							<Text text="{/Proceso/processDefinitionName}"/>
+						</HBox>
+						<HBox>
+							<Label text="Estado:" vAlign="Bottom" class="sapUiTinyMarginEnd"/>
+							<Text text="{= ${/Proceso/state} === 'ACTIVE' ? 'En proceso' : 'Completado' }"/>
+						</HBox>
+						<HBox>
+							<Label text="Fecha de creacion:" vAlign="Bottom" class="sapUiTinyMarginEnd"/>
+							<Text text="{path: '/Proceso/startTime', formatter: '.formatter.formatDate'}"/>
+						</HBox>
+					</VBox>
+				</Panel>
+
+			<Panel headerText="Actividad en curso" visible="{= ${/Proceso/state} === 'ACTIVE'}">
+				<VBox>
+					<HBox>
+						<Label text="Nombre de la actividad:" vAlign="Bottom" class="sapUiTinyMarginEnd"/>
+						<Text text="{/Actividad/name}"/>
+					</HBox>
+					<HBox>
+						<Label text="Usuario asignado:" vAlign="Bottom" class="sapUiTinyMarginEnd"/>
+						<Text text="{/Actividad/assignee}"/>
+					</HBox>
+					<HBox>
+						<Label text="Fecha de creacion:" vAlign="Bottom" class="sapUiTinyMarginEnd"/>
+						<Text text="{path: '/Actividad/created', formatter: '.formatter.formatDate'}"/>
+					</HBox>
+					<Button text="Continuar actividad" press="continuarActividad" visible="{= ${/Actividad/assignee} === ${/Usuario/Nombre} }"/>
+				</VBox>
+			</Panel>
+			</VBox>
+			
+			
+
+			<!-- <table:Table rows="{/Solicitudes}" rowSelectionChange="onRowSelected">
+				<table:extension>
+					<Toolbar>
+						<Title text="Solicitudes"/>
+						<ToolbarSpacer/>
+						<Button text="Nueva solicitud" press="nuevaSolicitud"/>
+					</Toolbar>
+				</table:extension>
+				<table:columns>
+					<table:Column>
+						<Label text="Request Number" />
+						<table:template>
+							<Text text="{requestNumber}" />
+						</table:template>
+					</table:Column>
+					<table:Column>
+						<Label text="Status" />
+						<table:template>
+							<Text text="{status}" />
+						</table:template>
+					</table:Column>
+					<table:Column>
+						<Label text="Last Task" />
+						<table:template>
+							<Text text="{lastTask}" />
+						</table:template>
+					</table:Column>
+					<table:Column>
+						<Label text="Date" />
+						<table:template>
+							<Text text="{date}" />
+						</table:template>
+					</table:Column>
+				</table:columns>
+			</table:Table> -->
+		</semantic:content>
+	</semantic:SemanticPage>
+</mvc:View>

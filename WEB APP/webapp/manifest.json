@@ -1,0 +1,180 @@
+{
+	"_version": "1.21.0",
+	"sap.app": {
+		"id": "sap.ui.procesosDNPC",
+		"type": "application",
+		"resources": "resources.json",
+		"i18n": {
+			"bundleUrl": "i18n/i18n.properties",
+			"supportedLocales": [
+				""
+			],
+			"fallbackLocale": ""
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"dataSources": {
+			"mainService": {
+				"uri": "/here/goes/your/serviceUrl/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/metadata.xml"
+				}
+			}
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "sap-icon://detail-view",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "sap.ui.procesosDNPC.view.App",
+			"type": "XML",
+			"async": true,
+			"id": "app"
+		},
+		"dependencies": {
+			"minUI5Version": "1.98.0",
+			"libs": {
+				"sap.f": {},
+				"sap.m": {},
+				"sap.ui.core": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "sap.ui.procesosDNPC.i18n.i18n",
+					"supportedLocales": [
+						""
+					],
+					"fallbackLocale": ""
+				}
+			},
+			"": {
+				"dataSource": "mainService",
+				"preload": true
+			}
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.f.routing.Router",
+				"type": "View",
+				"viewType": "XML",
+				"path": "sap.ui.procesosDNPC.view",
+				"controlId": "layout",
+				"controlAggregation": "beginColumnPages",
+				"bypassed": {
+					"target": "notFound"
+				},
+				"async": true
+			},
+			"routes": [
+				{
+					"pattern": "",
+					"name": "login",
+					"target": "login"
+				},
+				{
+					"pattern": "lista",
+					"name": "lista",
+					"target": "lista"
+				},
+				{
+					"pattern": "clausula/{idFlujo}",
+					"name": "clausula",
+					"target": "clausula"
+				},
+				{
+					"pattern": "solicitud/{idFlujo}",
+					"name": "solicitud",
+					"target": "solicitud"
+				},
+				{
+					"pattern": "cita/{idFlujo}",
+					"name": "cita",
+					"target": "cita"
+				},
+				{
+					"pattern": "tipoPago/{idFlujo}",
+					"name": "tipoPago",
+					"target": "tipoPago"
+				},
+				{
+					"pattern": "pago/{idFlujo}",
+					"name": "pago",
+					"target": "pago"
+				},
+				{
+					"pattern": "listaFuncionario",
+					"name": "listaFuncionario",
+					"target": "listaFuncionario"
+				}
+			],
+			"targets": {
+				"login": {
+					"name": "Login",
+					"level": 1,
+					"id": "login"
+				},
+				"lista": {
+					"name": "Lista",
+					"level": 2,
+					"id": "lista"
+				},
+				"clausula": {
+					"name": "Clausula",
+					"level": 3,
+					"id": "clausula"
+				},
+				"solicitud": {
+					"name": "Solicitud",
+					"level": 3,
+					"id": "solicitud"
+				},
+				"cita": {
+					"name": "Cita",
+					"level": 3,
+					"id": "cita"
+				},
+				"tipoPago": {
+					"name": "TipoPago",
+					"level": 3,
+					"id": "tipoPago"
+				},
+				"pago": {
+					"name": "Pago",
+					"level": 3,
+					"id": "pago"
+				},
+				"listaFuncionario": {
+					"name": "ListaFuncionario",
+					"level": 2,
+					"id": "listaFuncionario"
+				}
+			}
+		}
+	}
+}

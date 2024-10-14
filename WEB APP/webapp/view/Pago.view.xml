@@ -1,0 +1,45 @@
+<mvc:View
+	controllerName="sap.ui.procesosDNPC.controller.Pago"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	xmlns:semantic="sap.f.semantic"
+	xmlns:f="sap.ui.layout.form">
+	<semantic:SemanticPage id="page">
+		<semantic:titleHeading>
+			<Title
+				id="masterHeaderTitle"
+				text="Solicitud de Certificado de Antecedentes Judiciales"/>
+		</semantic:titleHeading>
+		<semantic:content>
+			<f:SimpleForm id="simpleForm" editable="true"
+				layout="ResponsiveGridLayout"
+				title="Pago Online"
+				labelSpanXL="3"
+				labelSpanL="3"
+				labelSpanM="3"
+				labelSpanS="12"
+				adjustLabelSpan="false"
+				emptySpanXL="4"
+				emptySpanL="4"
+				emptySpanM="4"
+				emptySpanS="0"
+				columnsXL="1"
+				columnsL="1"
+				columnsM="1"
+				singleContainerFullSize="false">
+				<ComboBox >
+					<core:Item key="1" text="Scotiabank" />
+					<core:Item key="2" text="Santander" />
+					<core:Item key="3" text="Itaú" />
+					<core:Item key="4" text="HSBC" />
+					<core:Item key="5" text="BROU" />
+					<core:Item key="6" text="BBVA" />
+					<core:Item key="7" text="Banco Heritage" />
+					<core:Item key="8" text="Bandes" />
+				</ComboBox>
+				<Button text="Pagar" press="enviarPago()" />
+            </f:SimpleForm>
+		</semantic:content>
+	</semantic:SemanticPage>
+</mvc:View>
