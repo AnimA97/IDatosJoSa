@@ -1,12 +1,12 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
 	"sap/ui/core/routing/History",
-	"../utils/API_CAMUNDA",
+	"../utils/API_BILLBOARD",
 	"sap/m/MessageBox"
 ], function (Controller, History, Camunda, MessageBox) {
 	"use strict";
 
-	return Controller.extend("sap.ui.procesosDNPC.controller.BaseController", {
+	return Controller.extend("sap.ui.billboarding.controller.BaseController", {
 		/**
 		 * Convenience method for accessing the router in every controller of the application.
 		 * @public

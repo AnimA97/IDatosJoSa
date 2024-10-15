@@ -4,7 +4,7 @@ sap.ui.define([
 ], function (BaseController, JSONModel) {
 	"use strict";
 
-	return BaseController.extend("sap.ui.procesosDNPC.controller.App", {
+	return BaseController.extend("sap.ui.billboarding.controller.App", {
 
 		onInit : function () {
 			var oViewModel,

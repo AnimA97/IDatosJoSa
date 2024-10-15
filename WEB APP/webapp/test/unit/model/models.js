@@ -1,7 +1,7 @@
 /*global QUnit*/
 
 sap.ui.define([
-	"sap/ui/procesosDNPC/model/models",
+	"sap/ui/billboarding/model/models",
 	"sap/ui/Device"
 ], function (models, Device) {
 	"use strict";

@@ -10,13 +10,13 @@ sap.ui.getCore().attachInit(function() {
 	 */
 	sap.ui.require([
 		"sap/ui/test/Opa5",
-		"sap/ui/procesosDNPC/test/integration/arrangements/Startup",
-		"sap/ui/procesosDNPC/test/integration/NavigationJourney"
+		"sap/ui/billboarding/test/integration/arrangements/Startup",
+		"sap/ui/billboarding/test/integration/NavigationJourney"
 	], function (Opa5, Startup) {
 
 		Opa5.extendConfig({
 			arrangements: new Startup(),
-			viewNamespace: "sap.ui.procesosDNPC.view.",
+			viewNamespace: "sap.ui.billboarding.view.",
 			autoWait: true
 		});
 

@@ -1,7 +1,7 @@
 /*global QUnit*/
 
 sap.ui.define([
-	"sap/ui/procesosDNPC/controller/ListSelector"
+	"sap/ui/billboarding/controller/ListSelector"
 ], function(ListSelector) {
 	"use strict";
 

@@ -4,12 +4,12 @@ sap.ui.define(
     "sap/ui/model/json/JSONModel",
     "sap/ui/core/Fragment",
     "../model/formatter",
-    "../utils/API_CAMUNDA",
+    "../utils/API_BILLBOARD",
   ],
   function (BaseController, JSONModel, Fragment, formatter, Camunda) {
     "use strict";
     var that;
-    return BaseController.extend("sap.ui.procesosDNPC.controller.Lista", {
+    return BaseController.extend("sap.ui.billboarding.controller.Lista", {
       formatter: formatter,
 
       /* =========================================================== */

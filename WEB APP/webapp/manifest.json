@@ -1,7 +1,7 @@
 {
 	"_version": "1.21.0",
 	"sap.app": {
-		"id": "sap.ui.procesosDNPC",
+		"id": "sap.ui.billboarding",
 		"type": "application",
 		"resources": "resources.json",
 		"i18n": {
@@ -45,7 +45,7 @@
 	},
 	"sap.ui5": {
 		"rootView": {
-			"viewName": "sap.ui.procesosDNPC.view.App",
+			"viewName": "sap.ui.billboarding.view.App",
 			"type": "XML",
 			"async": true,
 			"id": "app"
@@ -66,7 +66,7 @@
 			"i18n": {
 				"type": "sap.ui.model.resource.ResourceModel",
 				"settings": {
-					"bundleName": "sap.ui.procesosDNPC.i18n.i18n",
+					"bundleName": "sap.ui.billboarding.i18n.i18n",
 					"supportedLocales": [
 						""
 					],
@@ -83,7 +83,7 @@
 				"routerClass": "sap.f.routing.Router",
 				"type": "View",
 				"viewType": "XML",
-				"path": "sap.ui.procesosDNPC.view",
+				"path": "sap.ui.billboarding.view",
 				"controlId": "layout",
 				"controlAggregation": "beginColumnPages",
 				"bypassed": {
@@ -94,8 +94,8 @@
 			"routes": [
 				{
 					"pattern": "",
-					"name": "login",
-					"target": "login"
+					"name": "search",
+					"target": "search"
 				},
 				{
 					"pattern": "lista",
@@ -134,10 +134,10 @@
 				}
 			],
 			"targets": {
-				"login": {
-					"name": "Login",
+				"search": {
+					"name": "Search",
 					"level": 1,
-					"id": "login"
+					"id": "search"
 				},
 				"lista": {
 					"name": "Lista",

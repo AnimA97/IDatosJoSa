@@ -1,0 +1,77 @@
+<mvc:View
+	controllerName="sap.ui.billboarding.controller.search"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	xmlns:layout="sap.ui.layout"
+	xmlns:form="sap.ui.layout.form"
+	xmlns:f="sap.f"
+	xmlns:u="sap.ui.unified">
+	<f:DynamicPage id="page" title="{i18n>BILLBOARDING}" enableScrolling="true">	
+		<f:title>
+			<f:DynamicPageTitle>
+				<f:heading>
+					<Title id="masterHeaderTitle" text="{i18n>BILLBOARDING}"/>
+				</f:heading>
+				<f:content>
+					<!-- <FlexBox width="100%" alignItems="Center" justifyContent="SpaceBetween">
+						<Label text="{i18n>SONG_NAME}"/>
+						<Input value="{/Filter/SongName}"/>
+						<Label text="{i18n>ARTIST_NAME}"/>
+						<Input value="{/Filter/Artist}"/>
+					</FlexBox> -->
+				</f:content>
+				<f:actions>
+					<!-- <ToolbarSpacer/>
+					<Button text="Buscar" type="Emphasized"/> -->
+				</f:actions>
+			</f:DynamicPageTitle>
+		</f:title>
+		<f:header>
+			<f:DynamicPageHeader pinnable="true">
+				<FlexBox width="100%" alignItems="Center" justifyContent="SpaceBetween">
+					<HBox>
+						<layout:HorizontalLayout allowWrapping="true">
+							<layout:VerticalLayout class="sapUiMediumMarginEnd">
+								<Label text="{i18n>TITULO}"/>
+								<Input value="{/Filter/Title}" width="18rem"/>
+							</layout:VerticalLayout>
+							<layout:VerticalLayout class="sapUiMediumMarginEnd">
+								<Label text="{i18n>ARTISTA}"/>
+								<Input value="{/Filter/Artist}"  width="18rem"/>
+							</layout:VerticalLayout>
+						</layout:HorizontalLayout>
+					</HBox>
+					<HBox>
+						<Button text="{i18n>BUSCAR}" type="Emphasized" icon="sap-icon://search"/>
+					</HBox>
+				</FlexBox>
+			</f:DynamicPageHeader>
+		</f:header>
+		<f:content>
+			<Table
+				id="searchTable"
+				items="{/SongSearch}" inset="false"
+				noDataText="{i18n>NO_SONGS_TEXT}">
+				<columns>
+					<Column hAlign="Left" ><header><Label text="{i18n>TITULO}"></Label></header></Column>
+					<Column hAlign="Left" ><header><Label text="{i18n>ARTISTA}"></Label></header></Column>
+					<Column hAlign="Left" ><header><Label text="{i18n>ALBUM}"></Label></header></Column>
+					<Column hAlign="Left" ><header><Label text="{i18n>FECHA_LANZAMIENTO}"></Label></header></Column>
+					<Column hAlign="Left" ><header><Label text="{i18n>DURACION}"></Label></header></Column>
+				</columns>
+				<items>
+					<ColumnListItem>						
+						<cells>
+							<Text text="{Title}"/>
+							<Text text="{Artist}"/>
+							<Text text="{Album}"/>
+							<Text text="{path: 'ReleaseDate', formatter:'.formatter.formatDate'}"/>
+							<Text text="{path: 'Duration', formatter:'.formatter.formatLength'}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</f:content> 
+	</f:DynamicPage>
+</mvc:View>

@@ -1,5 +1,5 @@
 <mvc:View
-	controllerName="sap.ui.procesosDNPC.controller.App"
+	controllerName="sap.ui.billboarding.controller.App"
 	displayBlock="true"
 	height="100%"
 	xmlns="sap.m"

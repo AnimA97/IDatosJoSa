@@ -12,7 +12,7 @@ sap.ui.define([
 ], function (BaseController, JSONModel, Filter, FilterOperator, Sorter, GroupHeaderListItem, Device, Fragment, formatter, DateFormat) {
 	"use strict";
 	let that;
-	return BaseController.extend("sap.ui.procesosDNPC.controller.TipoPago", {
+	return BaseController.extend("sap.ui.billboarding.controller.TipoPago", {
 
 		formatter: formatter,
 
