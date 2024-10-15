@@ -1,12 +1,12 @@
 sap.ui.define([
 	"sap/ui/test/Opa5",
-	"sap/ui/procesosDNPC/localService/mockserver",
+	"sap/ui/billboarding/localService/mockserver",
 	"sap/base/strings/capitalize",
 	"sap/ui/core/Lib"
 ], function (Opa5, mockserver, capitalize, Library) {
 	"use strict";
 
-	return Opa5.extend("sap.ui.procesosDNPC.test.integration.pages.Common", {
+	return Opa5.extend("sap.ui.billboarding.test.integration.pages.Common", {
 
 		getEntitySet: function  (sEntitySet) {
 			return mockserver.getMockServer().getEntitySetData(sEntitySet);

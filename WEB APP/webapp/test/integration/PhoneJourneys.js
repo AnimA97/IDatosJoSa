@@ -8,6 +8,6 @@ sap.ui.define([
 
 	Opa5.extendConfig({
 		arrangements: new Startup(),
-		viewNamespace: "sap.ui.procesosDNPC.view."
+		viewNamespace: "sap.ui.billboarding.view."
 	});
 });

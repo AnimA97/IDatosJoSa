@@ -6,7 +6,7 @@ sap.ui.define([
 ], function (UIComponent, Device, models, JSONModel) {
 	"use strict";
 
-	return UIComponent.extend("sap.ui.procesosDNPC.Component", {
+	return UIComponent.extend("sap.ui.billboarding.Component", {
 
 		metadata : {
 			manifest : "json"

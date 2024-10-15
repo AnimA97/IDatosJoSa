@@ -6,7 +6,7 @@ sap.ui.getCore().attachInit(function() {
 	"use strict";
 
 	sap.ui.require([
-		"sap/ui/procesosDNPC/test/integration/PhoneJourneys"
+		"sap/ui/billboarding/test/integration/PhoneJourneys"
 	], function() {
 		QUnit.start();
 	});

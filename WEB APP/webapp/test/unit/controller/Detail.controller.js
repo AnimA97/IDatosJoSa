@@ -1,7 +1,7 @@
 /*global QUnit*/
 
 sap.ui.define([
-	"sap/ui/procesosDNPC/controller/Detail.controller",
+	"sap/ui/billboarding/controller/Detail.controller",
 	"sap/m/library"
 ], function(Detail, mobileLibrary) {
 	"use strict";

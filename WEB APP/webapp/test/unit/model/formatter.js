@@ -1,7 +1,7 @@
 /*global QUnit*/
 
 sap.ui.define([
-	"sap/ui/procesosDNPC/model/formatter",
+	"sap/ui/billboarding/model/formatter",
 	"../helper/FakeI18nModel"
 ], function (formatter, FakeI18n) {
 	"use strict";

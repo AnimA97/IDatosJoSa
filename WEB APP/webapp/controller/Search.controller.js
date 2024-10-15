@@ -10,7 +10,7 @@ sap.ui.define(
     "sap/ui/core/Fragment",
     "../model/formatter",
     "sap/ui/core/format/DateFormat",
-    "../utils/API_CAMUNDA",
+    "../utils/API_BILLBOARD",
     "sap/m/MessageBox",
   ],
   function (
@@ -24,14 +24,14 @@ sap.ui.define(
     Fragment,
     formatter,
     DateFormat,
-    Camunda,
+    API,
     MessageBox
   ) {
     "use strict";
 
     formatter: formatter;
 
-    return BaseController.extend("sap.ui.procesosDNPC.controller.Login", {
+    return BaseController.extend("sap.ui.billboarding.controller.search", {
       formatter: formatter,
 
       /* =========================================================== */
@@ -50,15 +50,16 @@ sap.ui.define(
         this.initModel();
       },
 
-      handleLogin: function () {
+      handleSearch: function () {
         var oModel = this.getModel();
 
-        var sUsuario = oModel.getProperty("/Usuario/Nombre");
-        var sPass = oModel.getProperty("/Usuario/Pass");
+        var sTitle = oModel.getProperty("/Filter/Title");
+        var sArtist = oModel.getProperty("/Filter/Artist");
 
-        Camunda.getUserGroups(sUsuario, sPass)
+        API.getSongs(sTitle, sArtist)
           .done(
             function (data) {
+              debugger
               if (data.findIndex((elem) => elem.id === "ciudadano") > -1) {
                 this.getRouter().navTo("lista");
               } else {
@@ -70,7 +71,7 @@ sap.ui.define(
           .fail(
             function () {
               MessageBox.error(
-                "Usuario o contraseña incorrectos. Por favor, inténtelo de nuevo."
+                "Ha ocurrido un error. Por favor, inténtelo de nuevo."
               );
             }.bind(this)
           );
@@ -79,9 +80,9 @@ sap.ui.define(
 
       initModel: function () {
         var oModel = this.getModel();
-        this.oModel.setProperty("/Usuario", {
-          Nombre: "",
-          Pass: "",
+        this.oModel.setProperty("/Filter", {
+          Title: "",
+          Artist: "",
         });
       },
     });

@@ -1,11 +1,11 @@
 sap.ui.define([
 	"sap/ui/test/Opa5",
-	"sap/ui/procesosDNPC/localService/mockserver",
+	"sap/ui/billboarding/localService/mockserver",
 	"sap/ui/model/odata/v2/ODataModel"
 ], function (Opa5, mockserver, ODataModel) {
 	"use strict";
 
-	return Opa5.extend("sap.ui.procesosDNPC.test.integration.arrangements.Startup", {
+	return Opa5.extend("sap.ui.billboarding.test.integration.arrangements.Startup", {
 
 		/**
 		 * Initializes mock server, then starts the app component
@@ -27,7 +27,7 @@ sap.ui.define([
 			// start the app UI component
 			this.iStartMyUIComponent({
 				componentConfig: {
-					name: "sap.ui.procesosDNPC",
+					name: "sap.ui.billboarding",
 					manifest: true
 				},
 				hash: oOptions.hash,
