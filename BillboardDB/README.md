@@ -1,25 +1,13 @@
-# Getting Started
+Bueno, parado en la carpeta BillboardDB
+- Consola y corre `cds watch`. Esto va dejar corriendo la API en localhost:4004
+-Luego las siguientes URL que te sirvan de ejemplo pero podes filtrar de esta manera por cualquier atributo de los que disponen los endpoints:
+http://localhost:4004/odata/v4/billboard/Song
+tienen tope de 1000 las consultas, asi que vas a tener que ir haciendo skip para recorrer
+http://localhost:4004/odata/v4/billboard/Song?$skiptoken=1000
+http://localhost:4004/odata/v4/billboard/Song/$count
+http://localhost:4004/odata/v4/billboard/Song?$filter=track_id eq 13
+http://localhost:4004/odata/v4/billboard/Song?$filter=rank eq 1
 
-Welcome to your new project.
+http://localhost:4004/odata/v4/billboard/SongName
+http://localhost:4004/odata/v4/billboard/SongName?$skiptoken=1000
 
-It contains these folders and files, following our recommended project layout:
-
-File or Folder | Purpose
----------|----------
-`app/` | content for UI frontends goes here
-`db/` | your domain models and data go here
-`srv/` | your service models and code go here
-`package.json` | project metadata and configuration
-`readme.md` | this getting started guide
-
-
-## Next Steps
-
-- Open a new terminal and run `cds watch`
-- (in VS Code simply choose _**Terminal** > Run Task > cds watch_)
-- Start adding content, for example, a [db/schema.cds](db/schema.cds).
-
-
-## Learn More
-
-Learn more at https://cap.cloud.sap/docs/get-started/.

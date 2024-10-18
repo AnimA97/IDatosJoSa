@@ -19,7 +19,7 @@ entity Song {
 	valence: String(10);
 	tempo: String(10);
 	url_youtube: String(100);
-	date: cds.Date;
+	date: Date;
 	rank: Integer;
 	last_week: Integer;
 	peak_rank: Integer;
