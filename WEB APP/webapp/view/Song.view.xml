@@ -1,5 +1,5 @@
 <mvc:View
-	controllerName="sap.ui.billboarding.controller.Solicitud"
+	controllerName="sap.ui.billboarding.controller.Song"
 	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns:core="sap.ui.core"
@@ -9,12 +9,12 @@
 		<semantic:titleHeading>
 			<Title
 				id="masterHeaderTitle"
-				text="Solicitud de Certificado de Antecedentes Judiciales"/>
+				text="Song de Certificado de Antecedentes Judiciales"/>
 		</semantic:titleHeading>
 		<semantic:content>
 			<f:SimpleForm id="simpleForm" editable="true"
 				layout="ResponsiveGridLayout"
-				title="Datos solicitud"
+				title="Datos song"
 				labelSpanXL="3"
 				labelSpanL="3"
 				labelSpanM="3"
@@ -28,10 +28,10 @@
 				columnsL="1"
 				columnsM="1"
 				singleContainerFullSize="false">
-				<Title value="Datos solicitud"/>
+				<Title value="Datos song"/>
 
-                <Label text="Tipo de solicitud" />
-                <ComboBox id="idTipoSolicitud" selectedKey="{/Solicitud/tipoSolicitud}">
+                <Label text="Tipo de song" />
+                <ComboBox id="idTipoSolicitud" selectedKey="{/Song/tipoSolicitud}">
                     <items>
                         <core:Item key="-" text="Común" />
                         <core:Item key="X" text="Urgente" />
@@ -39,35 +39,35 @@
                 </ComboBox>
 
                 <Label text="Número de documento" />
-                <Input id="idNumeroDocumento"  value="{/Solicitud/nroDoc}" placeholder="Ingrese número de documento" />
+                <Input id="idNumeroDocumento"  value="{/Song/nroDoc}" placeholder="Ingrese número de documento" />
 
                 <Label text="Fecha de nacimiento" />
-                <DatePicker id="idFechaNacimiento"  dateValue="{/Solicitud/fechaNacimiento}" placeholder="Seleccione fecha de nacimiento" />
+                <DatePicker id="idFechaNacimiento"  dateValue="{/Song/fechaNacimiento}" placeholder="Seleccione fecha de nacimiento" />
 
                 <Label text="Teléfono" />
-                <Input id="idTelefono" placeholder="Ingrese teléfono" type="Tel"  value="{/Solicitud/tel}" />
+                <Input id="idTelefono" placeholder="Ingrese teléfono" type="Tel"  value="{/Song/tel}" />
 
                 <Label text="Email" />
-                <Input id="idEmail" placeholder="Ingrese email" type="Email"  value="{/Solicitud/email}"/>
+                <Input id="idEmail" placeholder="Ingrese email" type="Email"  value="{/Song/email}"/>
 
                 <Label text="Destino" />
-                <ComboBox id="idDestino" placeholder="Seleccione destino"  selectedKey="{/Solicitud/destino}" items="{/Instituciones}">
+                <ComboBox id="idDestino" placeholder="Seleccione destino"  selectedKey="{/Song/destino}" items="{/Instituciones}">
 					<core:Item key="{value}" text="{label}" />
                 </ComboBox>
 
-				<Label text="Tipo de tramite" visible="{= ${/Solicitud/destino} === '5'}" />
-                <ComboBox  placeholder="Seleccione el tipo de tramite"  selectedKey="{/Solicitud/titular}" visible="{= ${/Solicitud/destino} === '5'}">
+				<Label text="Tipo de tramite" visible="{= ${/Song/destino} === '5'}" />
+                <ComboBox  placeholder="Seleccione el tipo de tramite"  selectedKey="{/Song/titular}" visible="{= ${/Song/destino} === '5'}">
                     <items>
                         <core:Item key="-" text="Gestor" />
 						<core:Item key="X" text="Titular" />
                     </items>
                 </ComboBox>
 
-				<Label text="Número de documento del gestor" visible="{= ${/Solicitud/destino} === '5' &amp;&amp; ${/Solicitud/titular} === '-'}"/>
-                <Input placeholder="Ingrese número de documento"  value="{/Solicitud/nroDocGestor}" visible="{= ${/Solicitud/destino} === '5' &amp;&amp; ${/Solicitud/titular} === '-'}"/>
+				<Label text="Número de documento del gestor" visible="{= ${/Song/destino} === '5' &amp;&amp; ${/Song/titular} === '-'}"/>
+                <Input placeholder="Ingrese número de documento"  value="{/Song/nroDocGestor}" visible="{= ${/Song/destino} === '5' &amp;&amp; ${/Song/titular} === '-'}"/>
                 
                 <Label text="Oficina" />
-                <ComboBox id="idOficina" placeholder="Seleccione oficina"  selectedKey="{/Solicitud/oficina}" items="{/Oficinas}">
+                <ComboBox id="idOficina" placeholder="Seleccione oficina"  selectedKey="{/Song/oficina}" items="{/Oficinas}">
 					<core:Item key="{value}" text="{label}" />
                 </ComboBox>
 				

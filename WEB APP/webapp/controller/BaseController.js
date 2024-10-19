@@ -74,29 +74,6 @@ sap.ui.define([
 		busyOff: function(){
 			this.getModel().setProperty("/Busy", true);
 		},
-		setIDFlujo: function(oEvent){
-			let idFlujo = oEvent.getParameter("arguments").idFlujo;
-            if(!idFlujo){
-				MessageBox.error("Error al cargar la tarea.");
-				return;
-            }
-			
-            this.getModel().setProperty("/IDFlujo", idFlujo)
-        },
-		completarTarea: function(data, success, fail){
-			let idTarea = this.getModel().getProperty("/IDTarea");
-			Camunda.completarTarea(idTarea, data).done(success).fail( fail || function(){
-				MessageBox.error("Error al completar el formulario.");
-			});
-		},
-		getVariables: function(idTarea){
-			return Camunda.getVariables(idTarea)
-		},
-		getIDUltimaTarea: function(){
-			let idFlujo = this.getModel().getProperty("/IDFlujo");
-			return Camunda.getIDUltimaTarea(idFlujo);
-		}
-
 
 	});
 });

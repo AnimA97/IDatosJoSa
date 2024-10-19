@@ -18,6 +18,7 @@ entity Song {
 	liveness: String(10);
 	valence: String(10);
 	tempo: String(10);
+	duration: String(100);
 	url_youtube: String(100);
 	date: Date;
 	rank: Integer;

@@ -34,16 +34,16 @@
 						<layout:HorizontalLayout allowWrapping="true">
 							<layout:VerticalLayout class="sapUiMediumMarginEnd">
 								<Label text="{i18n>TITULO}"/>
-								<Input value="{/Filter/Title}" width="18rem"/>
+								<Input value="{/Filter/Title}" submit="handleSearch" width="18rem"/>
 							</layout:VerticalLayout>
 							<layout:VerticalLayout class="sapUiMediumMarginEnd">
 								<Label text="{i18n>ARTISTA}"/>
-								<Input value="{/Filter/Artist}"  width="18rem"/>
+								<Input value="{/Filter/Artist}" submit="handleSearch" width="18rem"/>
 							</layout:VerticalLayout>
 						</layout:HorizontalLayout>
 					</HBox>
 					<HBox>
-						<Button text="{i18n>BUSCAR}" type="Emphasized" icon="sap-icon://search"/>
+						<Button text="{i18n>BUSCAR}" type="Emphasized" icon="sap-icon://search" press="handleSearch"/>
 					</HBox>
 				</FlexBox>
 			</f:DynamicPageHeader>
@@ -57,17 +57,20 @@
 					<Column hAlign="Left" ><header><Label text="{i18n>TITULO}"></Label></header></Column>
 					<Column hAlign="Left" ><header><Label text="{i18n>ARTISTA}"></Label></header></Column>
 					<Column hAlign="Left" ><header><Label text="{i18n>ALBUM}"></Label></header></Column>
-					<Column hAlign="Left" ><header><Label text="{i18n>FECHA_LANZAMIENTO}"></Label></header></Column>
 					<Column hAlign="Left" ><header><Label text="{i18n>DURACION}"></Label></header></Column>
+					<Column hAlign="Left" ><header><Label text="{i18n>POSICION_MAXIMA}"></Label></header></Column>
+					<Column hAlign="Left" ><header><Label text="{i18n>SEMANAS_EN_BILLBOARD}"></Label></header></Column>
 				</columns>
 				<items>
-					<ColumnListItem>						
+					<ColumnListItem type="Navigation" press="onSongPress">						
 						<cells>
-							<Text text="{Title}"/>
-							<Text text="{Artist}"/>
-							<Text text="{Album}"/>
-							<Text text="{path: 'ReleaseDate', formatter:'.formatter.formatDate'}"/>
-							<Text text="{path: 'Duration', formatter:'.formatter.formatLength'}"/>
+							<!-- <Link text="{track}" href="{url_spotify}"/> -->
+							<Text text="{track}"/>
+							<Text text="{artist}"/>
+							<Text text="{album}"/>
+							<Text text="{path: 'duration', formatter:'.formatter.formatDurationMS'}"/>
+							<Text text="{peak_rank}"/>
+							<Text text="{weeks_on_board}"/>
 						</cells>
 					</ColumnListItem>
 				</items>
