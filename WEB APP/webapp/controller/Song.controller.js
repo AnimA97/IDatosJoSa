@@ -40,7 +40,6 @@ sap.ui.define([
 			API.getSongData(oNavArguments.track, oNavArguments.artist)
 			.done(
 			  function (oData) {
-				debugger
 				// let sContext = oData["@odata.context"]
 				// let sNextLink = oData["@odata.nextLink"]
 				let oSongData = oData.value[0]

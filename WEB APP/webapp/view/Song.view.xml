@@ -7,14 +7,12 @@
 	xmlns:f="sap.ui.layout.form">
 	<semantic:SemanticPage id="page">
 		<semantic:titleHeading>
-			<Title
-				id="masterHeaderTitle"
-				text="Song de Certificado de Antecedentes Judiciales"/>
+			<Title id="masterHeaderTitle" text="{i18n>BILLBOARDING}"/>
 		</semantic:titleHeading>
 		<semantic:content>
 			<f:SimpleForm id="simpleForm" editable="true"
 				layout="ResponsiveGridLayout"
-				title="Datos song"
+				title="{i18n>CANCION}: {/SelectedSong/track} - {/SelectedSong/artist}"
 				labelSpanXL="3"
 				labelSpanL="3"
 				labelSpanM="3"
@@ -28,51 +26,34 @@
 				columnsL="1"
 				columnsM="1"
 				singleContainerFullSize="false">
-				<Title value="Datos song"/>
+				<Title value="{i18n>CANCION}: {/SelectedSong/track} - {/SelectedSong/artist}"/>
 
-                <Label text="Tipo de song" />
-                <ComboBox id="idTipoSolicitud" selectedKey="{/Song/tipoSolicitud}">
-                    <items>
-                        <core:Item key="-" text="Común" />
-                        <core:Item key="X" text="Urgente" />
-                    </items>
-                </ComboBox>
+                <Label text="{i18n>TITULO}" />
+                <Text text="{/SelectedSong/track}"/>
 
-                <Label text="Número de documento" />
-                <Input id="idNumeroDocumento"  value="{/Song/nroDoc}" placeholder="Ingrese número de documento" />
+                <Label text="{i18n>ARTISTA}" />
+                <Text text="{/SelectedSong/artist}"/>
 
-                <Label text="Fecha de nacimiento" />
-                <DatePicker id="idFechaNacimiento"  dateValue="{/Song/fechaNacimiento}" placeholder="Seleccione fecha de nacimiento" />
-
-                <Label text="Teléfono" />
-                <Input id="idTelefono" placeholder="Ingrese teléfono" type="Tel"  value="{/Song/tel}" />
-
-                <Label text="Email" />
-                <Input id="idEmail" placeholder="Ingrese email" type="Email"  value="{/Song/email}"/>
-
-                <Label text="Destino" />
-                <ComboBox id="idDestino" placeholder="Seleccione destino"  selectedKey="{/Song/destino}" items="{/Instituciones}">
-					<core:Item key="{value}" text="{label}" />
-                </ComboBox>
-
-				<Label text="Tipo de tramite" visible="{= ${/Song/destino} === '5'}" />
-                <ComboBox  placeholder="Seleccione el tipo de tramite"  selectedKey="{/Song/titular}" visible="{= ${/Song/destino} === '5'}">
-                    <items>
-                        <core:Item key="-" text="Gestor" />
-						<core:Item key="X" text="Titular" />
-                    </items>
-                </ComboBox>
-
-				<Label text="Número de documento del gestor" visible="{= ${/Song/destino} === '5' &amp;&amp; ${/Song/titular} === '-'}"/>
-                <Input placeholder="Ingrese número de documento"  value="{/Song/nroDocGestor}" visible="{= ${/Song/destino} === '5' &amp;&amp; ${/Song/titular} === '-'}"/>
-                
-                <Label text="Oficina" />
-                <ComboBox id="idOficina" placeholder="Seleccione oficina"  selectedKey="{/Song/oficina}" items="{/Oficinas}">
-					<core:Item key="{value}" text="{label}" />
-                </ComboBox>
+                <Label text="{i18n>ALBUM}" />
+                <Text text="{/SelectedSong/album}"/>
 				
-				<Label text="" />
-				<Button text="Enviar" press="enviarSolicitud" />
+                <Label text="{i18n>DURACION}" />
+                <Text text="{/SelectedSong/duration}"/>
+
+                <Label text="{i18n>POSICION_MAXIMA}" />
+                <Text text="{/SelectedSong/peak_rank}"/>
+
+                <Label text="{i18n>TEMPO}" />
+                <Text text="{/SelectedSong/tempo}"/>
+				
+                <Label text="{i18n>BAILABILIDAD}" />
+                <Text text="{/SelectedSong/danceability}"/>
+
+                <Label text="{i18n>ENERGIA}" />
+                <Text text="{/SelectedSong/energy}"/>
+				
+                <Label text="{i18n>CLAVE}" />
+                <Text text="{/SelectedSong/musical_key}"/>
             </f:SimpleForm>
 		</semantic:content>
 	</semantic:SemanticPage>
