@@ -77,7 +77,6 @@ sap.ui.define(
       },
 
       onSongPress: function (oSongListItem) {
-        debugger
         let sSongPath = oSongListItem.getSource().getBindingContextPath()
         let oSong = this.oModel.getProperty(sSongPath);
         this.oModel.setProperty("/SelectedSong", oSong);

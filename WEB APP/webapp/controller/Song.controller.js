@@ -9,7 +9,7 @@ sap.ui.define([
 	"sap/ui/core/Fragment",
 	"../model/formatter",
 	"sap/ui/core/format/DateFormat",
-    "../utils/API_BILLBOARD"
+    "../utils/API_BILLBOARD",
 ], function (BaseController, JSONModel, Filter, FilterOperator, Sorter, GroupHeaderListItem, Device, Fragment, formatter, DateFormat, API) {
 	"use strict";
 	var that;
@@ -56,7 +56,7 @@ sap.ui.define([
 			  }.bind(this)
 			);
 		},
-		
+
 		// enviarSolicitud: function(){
 		// 	let song = this.getModel().getProperty("/Song")
 		// 	let bodyRequest = {
@@ -118,16 +118,9 @@ sap.ui.define([
 		// },
 
 		initModel: function(){
-			this.getModel().setProperty("/Song", {
-				tipoSolicitud: "",
-				nroDoc: "",
-				fechaNacimiento: new Date(),
-				tel: "",
-				email: "",
-				destino: "",
-				oficina: "",
-				tipoTramite: "",
-				nroDocGestor: ""
+			this.getModel().setProperty("/SelectedSong", {
+				track: '',
+				artist: ''
 			});
 		}
 	});

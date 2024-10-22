@@ -7,3 +7,5 @@ WEB APP/package-lock.json
 WEB APP/package.json
 
 WEB APP/node_modules/\@ui5/cli/
+
+WEB APP/dist/
