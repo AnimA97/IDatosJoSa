@@ -4,14 +4,14 @@
 	xmlns:f="sap.ui.layout.form"
 	xmlns:l="sap.ui.layout" 
 	>
-	<Dialog id="ChangeDialog" title="Datos de la solicitud">
+	<Dialog id="ChangeDialog" title="Datos de la song">
 		<buttons>
 			<Button text="Cerrar" press="onCloseDialog" type="Reject"/>
 		</buttons>
 		<content>
 		<VBox class="sapUiSmallMargin">
 			<HBox>
-				<Label text="Tipo de Solicitud:"/>
+				<Label text="Tipo de Song:"/>
 				<Text text="{/SolicitudMostrar/tipo_solicitud_label}" class="sapUiTinyMarginBegin"/>
 			</HBox>
 			<HBox>

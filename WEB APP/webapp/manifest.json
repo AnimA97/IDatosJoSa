@@ -98,39 +98,9 @@
 					"target": "search"
 				},
 				{
-					"pattern": "lista",
-					"name": "lista",
-					"target": "lista"
-				},
-				{
-					"pattern": "clausula/{idFlujo}",
-					"name": "clausula",
-					"target": "clausula"
-				},
-				{
-					"pattern": "solicitud/{idFlujo}",
-					"name": "solicitud",
-					"target": "solicitud"
-				},
-				{
-					"pattern": "cita/{idFlujo}",
-					"name": "cita",
-					"target": "cita"
-				},
-				{
-					"pattern": "tipoPago/{idFlujo}",
-					"name": "tipoPago",
-					"target": "tipoPago"
-				},
-				{
-					"pattern": "pago/{idFlujo}",
-					"name": "pago",
-					"target": "pago"
-				},
-				{
-					"pattern": "listaFuncionario",
-					"name": "listaFuncionario",
-					"target": "listaFuncionario"
+					"pattern": "song/{track}/{artist}",
+					"name": "song",
+					"target": "song"
 				}
 			],
 			"targets": {
@@ -139,40 +109,10 @@
 					"level": 1,
 					"id": "search"
 				},
-				"lista": {
-					"name": "Lista",
+				"song": {
+					"name": "Song",
 					"level": 2,
-					"id": "lista"
-				},
-				"clausula": {
-					"name": "Clausula",
-					"level": 3,
-					"id": "clausula"
-				},
-				"solicitud": {
-					"name": "Solicitud",
-					"level": 3,
-					"id": "solicitud"
-				},
-				"cita": {
-					"name": "Cita",
-					"level": 3,
-					"id": "cita"
-				},
-				"tipoPago": {
-					"name": "TipoPago",
-					"level": 3,
-					"id": "tipoPago"
-				},
-				"pago": {
-					"name": "Pago",
-					"level": 3,
-					"id": "pago"
-				},
-				"listaFuncionario": {
-					"name": "ListaFuncionario",
-					"level": 2,
-					"id": "listaFuncionario"
+					"id": "song"
 				}
 			}
 		}

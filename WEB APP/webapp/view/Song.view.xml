@@ -1,0 +1,127 @@
+<mvc:View
+	controllerName="sap.ui.billboarding.controller.Song"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	xmlns:semantic="sap.f.semantic"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:lab="it.designfuture.chartjs">
+	<semantic:SemanticPage id="page">
+		<semantic:titleHeading>
+			<Title id="masterHeaderTitle" text="{i18n>BILLBOARDING}"/>
+		</semantic:titleHeading>
+		<semantic:content id="pageContent">
+			<FlexBox renderType="Bare">
+				<f:SimpleForm id="simpleForm" editable="true"
+					layout="ResponsiveGridLayout"
+					title="{i18n>CANCION}: {/SelectedSong/track} - {/SelectedSong/artist}"
+					labelSpanXL="3"
+					labelSpanL="3"
+					labelSpanM="3"
+					labelSpanS="12"
+					adjustLabelSpan="false"
+					emptySpanXL="4"
+					emptySpanL="4"
+					emptySpanM="4"
+					emptySpanS="0"
+					columnsXL="2"
+					columnsL="2"
+					columnsM="2"
+					singleContainerFullSize="false"
+					width="60%"
+					class="sapUiMediumMarginEnd">
+					<Title value="{i18n>CANCION}: {/SelectedSong/track} - {/SelectedSong/artist}"/>
+
+					<Label text="{i18n>TITULO}" />
+					<Text text="{/SelectedSong/track}"/>
+
+					<Label text="{i18n>ARTISTA}" />
+					<Text text="{/SelectedSong/artist}"/>
+
+					<Label text="{i18n>ALBUM}" />
+					<Text text="{/SelectedSong/album}"/>
+					
+					<Label text="{i18n>DURACION}" />
+					<Text text="{/SelectedSong/duration}"/>
+
+					<Label text="{i18n>POSICION_MAXIMA}" />
+					<Text text="{/SelectedSong/peak_rank}"/>
+
+					<Label text="{i18n>TEMPO}" />
+					<Text text="{/SelectedSong/tempo}"/>
+					
+					<Label text="{i18n>BAILABILIDAD}" />
+					<Text text="{/SelectedSong/danceability}"/>
+
+					<Label text="{i18n>ENERGIA}" />
+					<Text text="{/SelectedSong/energy}"/>
+					
+					<Label text="{i18n>CLAVE}" />
+					<Text text="{/SelectedSong/musical_key}"/>
+				</f:SimpleForm>
+				<!-- <core:HTML afterRendering="onRender" content="&lt;canvas id=&quot;myChart&quot;&gt;&lt;/canvas&gt;"></core:HTML> -->
+				<!-- <lab:LineChartJS
+					id="line_chart"
+					datasets="{path: '/SongChartHistory', formatter:'.formatter.setChartData'}"
+					labels="{path: '/SongChartHistory', formatter:'.formatter.setChartLabels'}"
+					titleDisplay="true"
+					titleText="Line Chart Example"
+					onLegendItemClick="onLegendItemClick"
+					onLegendItemHover="onLegendItemHover"
+					onClick="onClick"
+					onHover="onHover"
+					tooltipEnabled="true"
+					onAnimationProgress="onAnimationProgress"
+					onAnimationComplete="onAnimationComplete"
+					showLines="true"
+					spanGaps="true">
+				</lab:LineChartJS> -->
+				<!-- <viz:VizFrame id="idVizFrame" uiConfig="{applicationSet:'fiori'}" height='100%' width="100%" vizType='timeseries_line'>
+					<viz:dataset>
+						<viz.data:FlattenedDataset data="{/SongChartHistory}">
+							<viz.data:dimensions>
+								<viz.data:DimensionDefinition name="Date"
+									value="{date}" dataType="date"/>
+							</viz.data:dimensions>
+							<viz.data:measures>
+								<viz.data:MeasureDefinition name="Rank"
+									value="{rank}" />
+							</viz.data:measures>
+						</viz.data:FlattenedDataset>
+					</viz:dataset>
+
+					<viz:feeds>
+						<viz.feeds:FeedItem uid="valueAxis" type="Measure"
+							values="Revenue" />
+						<viz.feeds:FeedItem uid="timeAxis" type="Dimension"
+							values="Date" />
+					</viz:feeds>
+					<viz:dependents>
+						<viz:Popover id="idPopOver"></viz:Popover>
+					</viz:dependents>
+				</viz:VizFrame> -->
+				<Table
+					id="searchTable"
+					items="{/SongChartHistory}" inset="false"
+					headerText="{i18n>CHART_HISTORY}"
+					noDataText="{i18n>NO_SONGS_TEXT}"
+					width="40%">
+					<columns>
+						<Column hAlign="Left" ><header><Label text="{i18n>FECHA}"></Label></header></Column>
+						<Column hAlign="Left" ><header><Label text="{i18n>POSICION}"></Label></header></Column>
+					</columns>
+					<items>
+						<ColumnListItem press="onSongPress" highlight="{path: 'rank', formatter:'.formatter.rankToState'}">						
+							<cells>
+								<!-- <Link text="{track}" href="{url_spotify}"/> -->
+								<Text text="{date}"/>
+								<!-- <Text text="{path: 'date', formatter:'.formatter.formatDate'}"/> -->
+								<Text text="{rank}"/>
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+			</FlexBox>
+		</semantic:content>
+	</semantic:SemanticPage>
+</mvc:View>

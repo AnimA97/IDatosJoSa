@@ -58,14 +58,12 @@ sap.ui.define(
 
         API.getSongs(sTitle, sArtist)
           .done(
-            function (data) {
-              debugger
-              if (data.findIndex((elem) => elem.id === "ciudadano") > -1) {
-                this.getRouter().navTo("lista");
-              } else {
-                this.getRouter().navTo("listaFuncionario");
-                //navegar a lista funcionario
-              }
+            function (oData) {
+              // let sContext = oData["@odata.context"]
+              // let sNextLink = oData["@odata.nextLink"]
+              let aSongs = oData.value
+              this.oModel.setProperty("/SongSearch", aSongs);
+              //Nice to have: Añadir capacidad de recibir +1000 resultados con sNextLink
             }.bind(this)
           )
           .fail(
@@ -76,6 +74,16 @@ sap.ui.define(
             }.bind(this)
           );
         // this.getRouter().navTo("lista");
+      },
+
+      onSongPress: function (oSongListItem) {
+        let sSongPath = oSongListItem.getSource().getBindingContextPath()
+        let oSong = this.oModel.getProperty(sSongPath);
+        this.oModel.setProperty("/SelectedSong", oSong);
+        this.getRouter().navTo("song", {
+          track: oSong.track,
+          artist: oSong.artist,
+        });
       },
 
       initModel: function () {

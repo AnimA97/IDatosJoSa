@@ -5,104 +5,49 @@ sap.ui.define([
 
 	return {
 
-		/**
-		 * Rounds the currency value to 2 digits
-		 *
-		 * @public
-		 * @param {string} sValue value to be formatted
-		 * @returns {string} formatted currency value with 2 digits
-		 */
-		currencyValue: function (sValue) {
-			if (!sValue) {
-				return "";
-			}
-			return parseFloat(sValue).toFixed(2);
-		},
-
-		/**
-		 * Rounds the currency value to 2 digits
-		 *
-		 * @public
-		 * @param {number} iQuantity product quantity
-		 * @param {number} fPrice product price
-		 * @param {string} sCurrencyCode currency code for the price
-		 * @returns {string} formatted currency value with 2 digits
-		 */
-		calculateItemTotal: function (iQuantity, fPrice, sCurrencyCode) {
-			var oCurrency = new Currency({showMeasure: false});
-			var fTotal = iQuantity * fPrice;
-			return oCurrency.formatValue([fTotal.toFixed(2), sCurrencyCode], "string");
-		},
-
-		/**
-		 * Converts a binary string into an image format suitable for the src attribute
-		 *
-		 * @public
-		 * @param {string} vData a binary string representing the image data
-		 * @returns {string} formatted string with image metadata based on the input or a default image when the input is empty
-		 */
-		handleBinaryContent: function(vData){
-			if (vData) {
-				var sMetaData1 = 'data:image/jpeg;base64,';
-				var sMetaData2 = vData.substr(104); // stripping the first 104 bytes from the binary data when using base64 encoding.
-				return sMetaData1 + sMetaData2;
-			} else {
-				return "../images/Employee.png";
-			}
-		},
-
-		/**
-		 * Provides a text to indicate the delivery status based on shipped and required dates
-		 *
-		 * @public
-		 * @param {object} oRequiredDate required date of the order
-		 * @param {object} oShippedDate shipped date of the order
-		 * @returns {string} delivery status text from the resource bundle
-		 */
-		deliveryText: function (oRequiredDate, oShippedDate) {
-			var oResourceBundle = this.getModel("i18n").getResourceBundle();
-
-			if (oShippedDate === null) {
-				return "None";
-			}
-
-			// delivery is urgent (takes more than 7 days)
-			if (oRequiredDate - oShippedDate > 0 && oRequiredDate - oShippedDate <= 432000000) {
-				return oResourceBundle.getText("formatterDeliveryUrgent");
-			} else if (oRequiredDate < oShippedDate) { //d elivery is too late
-				return oResourceBundle.getText("formatterDeliveryTooLate");
-			} else { // delivery is in time
-				return oResourceBundle.getText("formatterDeliveryInTime");
-			}
-		},
-
-		/**
-		 * Provides a semantic state to indicate the delivery status based on shipped and required dates
-		 *
-		 * @public
-		 * @param {object} oRequiredDate required date of the order
-		 * @param {object} oShippedDate shipped date of the order
-		 * @returns {string} semantic state of the order
-		 */
-		deliveryState: function (oRequiredDate, oShippedDate) {
-			if (oShippedDate === null) {
-				return "None";
-			}
-
-			// delivery is urgent (takes more than 7 days)
-			if (oRequiredDate - oShippedDate > 0 && oRequiredDate - oShippedDate <= 432000000) {
-				return "Warning";
-			} else if (oRequiredDate < oShippedDate) { // delivery is too late
-				return "Error";
-			} else { // delivery is in time
-				return "Success";
-			}
-		},
-
 		formatDate: function (dateString) {
 			const options = { year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit' };
 			const date = new Date(dateString);
 			return date.toLocaleDateString('en-GB', options).replace(',', '');
-		}
+		},
+
+		setChartData: function (aChartData) {
+			let oDataset = {
+				label: "My First dataset",
+				fill: false,
+				lineTension: 0.1,
+				backgroundColor: "rgba(75,192,192,0.4)",
+				borderColor: "rgba(75,192,192,1)",
+				borderCapStyle: 'butt',
+				borderDash: [],
+				borderDashOffset: 0.0,
+				borderJoinStyle: 'miter',
+				pointBorderColor: "rgba(75,192,192,1)",
+				pointBackgroundColor: "#fff",
+				pointBorderWidth: 1,
+				pointHoverRadius: 5,
+				pointHoverBackgroundColor: "rgba(75,192,192,1)",
+				pointHoverBorderColor: "rgba(220,220,220,1)",
+				pointHoverBorderWidth: 2,
+				pointRadius: 1,
+				pointHitRadius: 10,
+				data: aChartData.map(row => row.rank),
+				spanGaps: false
+			}
+			return oDataset;
+		},
+
+		setChartLabels: function (aChartData) {
+			return aChartData.map(row => row.date);
+		},
+
+		rankToState: function (nRank){
+			if (!nRank) return sap.ui.core.MessageType.None
+			else if (nRank >= 80) return sap.ui.core.MessageType.Error
+			else if (nRank >= 50) return sap.ui.core.MessageType.Warning
+			else if (nRank >= 25) return sap.ui.core.MessageType.Information
+			else if (nRank > 0) return sap.ui.core.MessageType.Success
+			return sap.ui.core.MessageType.None
+		},
 	};
 });
