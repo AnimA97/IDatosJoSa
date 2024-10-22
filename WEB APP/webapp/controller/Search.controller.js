@@ -48,6 +48,12 @@ sap.ui.define(
         this.establishModel();
         this.oModel = this.getView().getModel();
         this.initModel();
+        
+        //ordenar tabla de búsqueda por canciones que más semanas estuvieron
+        let oTable = this.getView().byId('searchTable')
+        let oBinding = oTable.getBinding('items')
+        let aSorter = [new sap.ui.model.Sorter("weeks_on_board", true)]
+        oBinding.sort(aSorter)
       },
 
       handleSearch: function () {

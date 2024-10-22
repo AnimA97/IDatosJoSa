@@ -14,7 +14,6 @@
 			<FlexBox renderType="Bare">
 				<f:SimpleForm id="simpleForm" editable="true"
 					layout="ResponsiveGridLayout"
-					title="{i18n>CANCION}: {/SelectedSong/track} - {/SelectedSong/artist}"
 					labelSpanXL="3"
 					labelSpanL="3"
 					labelSpanM="3"
@@ -30,8 +29,28 @@
 					singleContainerFullSize="false"
 					width="60%"
 					class="sapUiMediumMarginEnd">
-					<Title value="{i18n>CANCION}: {/SelectedSong/track} - {/SelectedSong/artist}"/>
-
+					<f:toolbar>
+						<Toolbar>
+							<Title text="{i18n>CANCION}: {/SelectedSong/track} - {/SelectedSong/artist}"/>
+							<ToolbarSpacer/>
+							<Button xmlns="sap.m"
+								xmlns:core="sap.ui.core"
+								core:require="{ sapMLib: 'sap/m/library' }"
+								visible="{= ${/SelectedSong/url_spotify} !== ''}"
+								type="Accept"
+								icon=""
+								text="Spotify"
+								press="sapMLib.URLHelper.redirect(${/SelectedSong/url_spotify}, true)"/>
+							<Button xmlns="sap.m"
+								xmlns:core="sap.ui.core"
+								core:require="{ sapMLib: 'sap/m/library' }"
+								visible="{= ${/SelectedSong/url_youtube} !== ''}"
+								type="Reject"
+								icon=""
+								text="YouTube"
+								press="sapMLib.URLHelper.redirect(${/SelectedSong/url_youtube}, true)"/>
+						</Toolbar>
+					</f:toolbar>
 					<Label text="{i18n>TITULO}" />
 					<Text text="{/SelectedSong/track}"/>
 
@@ -42,7 +61,7 @@
 					<Text text="{/SelectedSong/album}"/>
 					
 					<Label text="{i18n>DURACION}" />
-					<Text text="{/SelectedSong/duration}"/>
+					<Text text="{path: '/SelectedSong/duration', formatter:'.formatter.formatDurationMS'}"/>
 
 					<Label text="{i18n>POSICION_MAXIMA}" />
 					<Text text="{/SelectedSong/peak_rank}"/>
@@ -57,8 +76,15 @@
 					<Text text="{/SelectedSong/energy}"/>
 					
 					<Label text="{i18n>CLAVE}" />
-					<Text text="{/SelectedSong/musical_key}"/>
+					<Text text="{path: '/SelectedSong/musical_key', formatter:'.formatter.formatMusicalKey'}"/>
+
+					<!-- <Label text="{i18n>REPRODECIR}" />
+					<HBox>
+						<Button text="spotify" />
+						<Button text="youtube" />
+					</HBox> -->
 				</f:SimpleForm>
+
 				<!-- <core:HTML afterRendering="onRender" content="&lt;canvas id=&quot;myChart&quot;&gt;&lt;/canvas&gt;"></core:HTML> -->
 				<!-- <lab:LineChartJS
 					id="line_chart"

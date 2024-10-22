@@ -51,15 +51,18 @@
 		<f:content>
 			<Table
 				id="searchTable"
-				items="{/SongSearch}" inset="false"
-				noDataText="{i18n>NO_SONGS_TEXT}">
+				items="{/SongSearch}"
+				inset="false"
+				noDataText="{i18n>NO_SONGS_TEXT}"
+				growing="true"
+				growingThreshold="100">
 				<columns>
 					<Column hAlign="Left" ><header><Label text="{i18n>TITULO}"></Label></header></Column>
 					<Column hAlign="Left" ><header><Label text="{i18n>ARTISTA}"></Label></header></Column>
 					<Column hAlign="Left" ><header><Label text="{i18n>ALBUM}"></Label></header></Column>
-					<Column hAlign="Left" ><header><Label text="{i18n>DURACION}"></Label></header></Column>
-					<Column hAlign="Left" ><header><Label text="{i18n>POSICION_MAXIMA}"></Label></header></Column>
-					<Column hAlign="Left" ><header><Label text="{i18n>SEMANAS_EN_BILLBOARD}"></Label></header></Column>
+					<Column hAlign="Left" width="13%"><header><Label text="{i18n>DURACION}"></Label></header></Column>
+					<Column hAlign="Left" width="13%"><header><Label text="{i18n>POSICION_MAXIMA}"></Label></header></Column>
+					<Column hAlign="Left" width="13%"><header><Label text="{i18n>SEMANAS_EN_BILLBOARD}"></Label></header></Column>
 				</columns>
 				<items>
 					<ColumnListItem type="Navigation" press="onSongPress">						

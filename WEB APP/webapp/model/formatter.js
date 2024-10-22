@@ -49,5 +49,32 @@ sap.ui.define([
 			else if (nRank > 0) return sap.ui.core.MessageType.Success
 			return sap.ui.core.MessageType.None
 		},
+
+		formatDurationMS: function (msDuration){
+			// Calculamos los segundos totales
+			const segundosTotales = Math.floor(msDuration / 1000);
+
+			// Calculamos los minutos y segundos
+			const minutos = Math.floor(segundosTotales / 60);
+			const segundos = segundosTotales % 60;
+
+			// Formateamos los valores a dos dígitos
+			const minutosFormateados = minutos.toString().padStart(2, '0');
+			const segundosFormateados = segundos.toString().padStart(2, '0');
+
+			// Retornamos la cadena en el formato deseado
+			return `${minutosFormateados}:${segundosFormateados}`;
+		},
+
+		formatMusicalKey: function (sMusicalKey){
+			const nKey = parseInt(sMusicalKey)
+			const keyNames = ["C", "C#/D♭", "D", "D#/E♭", "E", "F", "F#/G♭", "G", "G#/A♭", "A", "A#/B♭", "B"];
+
+			if (nKey === -1) {
+			  return "No detectada";
+			} else {
+			  return keyNames[nKey];
+			}
+		},
 	};
 });
