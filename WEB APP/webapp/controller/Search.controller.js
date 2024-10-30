@@ -54,6 +54,8 @@ sap.ui.define(
         let oBinding = oTable.getBinding('items')
         let aSorter = [new sap.ui.model.Sorter("weeks_on_board", true)]
         oBinding.sort(aSorter)
+
+        this.handleSearch()
       },
 
       handleSearch: function () {
