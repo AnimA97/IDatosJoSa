@@ -1,0 +1,14 @@
+specVersion: "3.2"
+metadata:
+  name: sap.ui.billboarding
+type: application
+framework:
+  name: OpenUI5
+  version: "1.130.0"
+  libraries:
+    - name: sap.f
+    - name: sap.m
+    - name: sap.tnt
+    - name: sap.ui.core
+    - name: sap.ui.layout
+    - name: themelib_sap_horizon
