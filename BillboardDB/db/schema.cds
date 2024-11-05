@@ -25,4 +25,5 @@ entity Song {
 	last_week: Integer;
 	peak_rank: Integer;
 	weeks_on_board: Integer;
+	lyrics: String(5000);
 };
