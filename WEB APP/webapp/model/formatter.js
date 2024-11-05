@@ -76,5 +76,13 @@ sap.ui.define([
 			  return keyNames[nKey];
 			}
 		},
+
+		formatTempo: function (sTempo){
+			return parseInt(sTempo) + " BPM"
+		},
+
+		formatLyrics: function (sLyrics){
+			return sLyrics ? sLyrics.replaceAll("   ", "\n").replaceAll("  ", "\n").replaceAll("? ", "\n").trimStart()  : ""
+		},
 	};
 });
